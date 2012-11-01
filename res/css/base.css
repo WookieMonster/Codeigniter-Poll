@@ -1,0 +1,206 @@
+
+/* ---------------------------------------------------------
+
+	Just some rough styles..
+	./res/css/base.css
+
+------------------------------------------------------------ */
+
+@import url("reset.css");
+
+body
+{
+	padding: 40px 0 40px 0;
+	border-top: 10px solid #000;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+#container
+{
+	width: 800px;
+	margin: 0 auto;
+}
+
+p
+{
+	margin: 0 0 20px 0;
+}
+
+a, a:visited, a:hover, a:active
+{
+	color: #6593be;
+	text-decoration: none;
+	border-bottom: 1px dotted #DDD;
+}
+
+a:hover
+{
+	color: #000;
+}
+
+dl
+{
+	margin: 0 0 20px 0;
+}
+
+dt
+{
+	margin: 0 0 5px 0;
+}
+
+dd
+{
+	margin: 0 0 10px 0;
+}
+
+dd.error, ul.adpt_errors li
+{
+	color: red;
+}
+
+ul
+{
+	margin: 0 0 10px 0;
+}
+
+ul li 
+{
+	list-style: square inside;
+}
+
+h2
+{
+	font-size: 28px;
+	line-height: 36px;
+	margin: 0 0 10px 0;
+}
+
+h3
+{
+	font-size: 20px;
+	line-height: 25px;
+	margin: 0 0 10px 0;
+}
+
+.poll
+{
+	margin: 0 0 20px 0;
+	padding: 10px 0 0 0;
+	border-top: 5px solid #DDD;
+	background: #FFF;
+}
+
+.poll_bg
+{
+	width: 100%;
+	height: 30px;
+	background: transparent url('../img/poll_bg.png');;
+	display: block;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.poll_bar
+{
+	height: 30px;
+	background: #b9dfaf;
+	display: block;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.vote_count
+{
+	color: #AAA;
+}
+
+#create_poll
+{
+	padding: 20px 0 0 0;
+}
+
+input
+{
+	padding: 10px;
+	outline-style: none;
+	border: 1px solid #DDD;
+	width: 300px;
+	font-size: 16px;
+}
+
+button
+{
+	color: #999;
+	border: 1px solid #DDD;
+	font-size: 16px;
+	padding: 10px;
+	margin: 0;
+	background: #EEE;
+	cursor: pointer;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+
+.adpt_inputs p
+{
+	margin: 0 0 5px 0;
+}
+
+.btn_add, .btn_delete, .btn_normal
+{
+	padding: 5px 10px 5px 10px;
+	display: inline-block;
+	color: white;
+	background: #79c166;
+	border-bottom: none;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.btn_add:hover, .btn_add:visited, .btn_add:active,
+.btn_delete:hover, .btn_delete:visited, .btn_delete:active,
+.btn_normal:hover, .btn_normal:visited, .btn_normal:active
+{
+	border-bottom: none;
+	color: #FFF;
+}
+
+.btn_normal:hover, .btn_normal:visited, .btn_normal:active
+{
+	color: #999;
+}
+
+.btn_delete
+{
+	background: #cc6c76;
+}
+
+.btn_normal
+{
+	color: #999;
+	background: #EEE;
+}
+
+.adpt_inputs
+{
+	margin: 0 0 20px 0;
+}
+
+ol.adpt_inputs_list
+{
+	margin: 0 0 5px 0;
+	list-style: none;
+}
+
+ol.adpt_inputs_list li
+{
+	margin: 0 0 5px 0;
+}

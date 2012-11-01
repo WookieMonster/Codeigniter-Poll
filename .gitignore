@@ -1,0 +1,15 @@
+.htaccess
+.travis.yml
+application/config/*
+!application/config/poll.php
+core/
+errors/
+helpers/
+hooks/
+logs/
+third_party/
+index.php
+license.txt
+sql_dumps/
+system/
+user_guide/
