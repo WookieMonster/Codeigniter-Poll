@@ -2,6 +2,7 @@
 .travis.yml
 application/config/*
 !application/config/poll.php
+!application/config/routes.php
 core/
 errors/
 helpers/
