@@ -27,6 +27,17 @@ class Poll_model extends CI_Model {
 	}
 	
 	/**
+	 * Returns total number of polls
+	 * 
+	 * @access	public
+	 * @return	integer
+	 */
+	public function num_polls()
+	{
+		return $this->db->count_all($this->polls_table);
+	}
+	
+	/**
 	 * Gets a single poll with poll_id
 	 * 
 	 * @access	public
@@ -219,7 +230,6 @@ class Poll_model extends CI_Model {
 	 */
 	public function has_previously_voted_within($interval, $poll_id)
 	{
-		// note query for reference: SELECT * FROM options, votes WHERE option_poll_id = 1 AND vote_option_id = option_id
 		$this->db->from($this->options_table);
 		$this->db->join($this->votes_table, 'votes.option_id = options.option_id');
 		$this->db->where('options.poll_id', $poll_id);

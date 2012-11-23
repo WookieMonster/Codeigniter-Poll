@@ -22,9 +22,17 @@ class Poll extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Polls';
-		$data['results'] = $this->poll_lib->all_polls(10, 0);
 		$data['base_styles'] = 'res/css/base.css';
-
+		
+		$config['base_url'] = site_url('poll/page');
+		$config['total_rows'] = $this->poll_lib->num_polls();
+		$config['per_page'] = 10;
+		$this->load->library('pagination');
+		$this->pagination->initialize($config);
+		
+		$data['results'] = $this->poll_lib->all_polls($config['per_page'], $this->uri->segment(3));
+		$data['paging_links'] = $this->pagination->create_links();
+		
 		$this->load->view('polls/index', $data);
 	}
 	
