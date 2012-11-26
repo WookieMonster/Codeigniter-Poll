@@ -9,7 +9,8 @@ helpers/
 hooks/
 logs/
 third_party/
-index.php
+/index.php
+!application/views/index.php
 license.txt
 sql_dumps/
 system/
