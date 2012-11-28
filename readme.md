@@ -1,5 +1,7 @@
 # Codeigniter Poll Library
 
+**Demo:** [http://s42954.gridserver.com/test/ci_poll/](http://s42954.gridserver.com/test/ci_poll/)
+
 ## Key features:
 
 * Supports multiple polls
