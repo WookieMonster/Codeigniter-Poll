@@ -11,7 +11,6 @@
 	
 </head>
 <body>
-	blah
 <div id="container">
 	<div id="content" role="main">
 		<h2><?php echo $title; ?></h2>

@@ -69,8 +69,7 @@ class Poll_model extends CI_Model {
 	 */
 	public function get_polls($limit, $offset)
 	{
-		$this->db->select('poll_id, title, closed');
-		$this->db->order_by('created', 'desc');
+		$this->db->select('poll_id, title, closed')->order_by('created', 'desc');
 		$query = $this->db->get($this->polls_table, $limit, $offset);
 		
 		if ($query->num_rows > 0)
@@ -91,8 +90,7 @@ class Poll_model extends CI_Model {
 	 */
 	public function get_latest_poll()
 	{
-		$this->db->select('poll_id, title, closed');
-		$this->db->order_by('created', 'desc');
+		$this->db->select('poll_id, title, closed')->order_by('created', 'desc');
 		$query = $this->db->get($this->polls_table, 1); // limit to 1
 		
 		if ($query->num_rows == 1)
@@ -135,9 +133,10 @@ class Poll_model extends CI_Model {
 	 */
 	public function get_options_votes($option_id)
 	{
-		$this->db->from($this->votes_table);
-		$this->db->select('vote_id');
-		$this->db->where('option_id', $option_id);
+		$this->db->from($this->votes_table)
+			->select('vote_id')
+			->where('option_id', $option_id);
+			
 		return $this->db->count_all_results();
 	}
 	
@@ -213,11 +212,13 @@ class Poll_model extends CI_Model {
 	 */
 	public function has_previously_voted($poll_id)
 	{
-		$this->db->from($this->options_table);
-		$this->db->join($this->votes_table, 'votes.option_id = options.option_id');
-		$this->db->where('options.poll_id', $poll_id);
-		$this->db->where('votes.ip_address', $this->input->ip_address());
+		$this->db->from($this->options_table)
+			->join($this->votes_table, 'votes.option_id = options.option_id')
+			->where('options.poll_id', $poll_id)
+			->where('votes.ip_address', $this->input->ip_address());
+			
 		return ($this->db->count_all_results() > 0) ? TRUE : FALSE;
+		
 	}
 	
 	/**
@@ -230,11 +231,12 @@ class Poll_model extends CI_Model {
 	 */
 	public function has_previously_voted_within($interval, $poll_id)
 	{
-		$this->db->from($this->options_table);
-		$this->db->join($this->votes_table, 'votes.option_id = options.option_id');
-		$this->db->where('options.poll_id', $poll_id);
-		$this->db->where('votes.timestamp >', time() - $interval);
-		$this->db->where('votes.ip_address', $this->input->ip_address());
+		$this->db->from($this->options_table)
+			->join($this->votes_table, 'votes.option_id = options.option_id')
+			->where('options.poll_id', $poll_id)
+			->where('votes.timestamp >', time() - $interval)
+			->where('votes.ip_address', $this->input->ip_address());
+		
 		return ($this->db->count_all_results() > 0) ? TRUE : FALSE;
 	}
 	
@@ -291,9 +293,9 @@ class Poll_model extends CI_Model {
 	 */
 	public function close_poll($poll_id)
 	{
-		$this->db->set('closed', 1);
-		$this->db->where('poll_id', $poll_id);
-		$this->db->update($this->polls_table);
+		$this->db->set('closed', 1)
+			->where('poll_id', $poll_id)
+			->update($this->polls_table);
 	}
 	
 	/**
@@ -305,9 +307,9 @@ class Poll_model extends CI_Model {
 	 */
 	public function open_poll($poll_id)
 	{
-		$this->db->set('closed', 0);
-		$this->db->where('poll_id', $poll_id);
-		$this->db->update($this->polls_table);
+		$this->db->set('closed', 0)
+			->where('poll_id', $poll_id)
+			->update($this->polls_table);
 	}
 	
 	/**
