@@ -23,18 +23,6 @@
 # Dump of table options
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `options`;
-
-CREATE TABLE `options` (
-  `option_id` int(11) NOT NULL AUTO_INCREMENT,
-  `poll_id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL DEFAULT '',
-  PRIMARY KEY (`option_id`),
-  KEY `option_poll_id` (`poll_id`),
-  CONSTRAINT `options_ibfk_1` FOREIGN KEY (`poll_id`) REFERENCES `polls` (`poll_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
 
 # Dump of table polls
 # ------------------------------------------------------------
@@ -48,6 +36,22 @@ CREATE TABLE `polls` (
   `closed` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'if the poll is closed or not',
   PRIMARY KEY (`poll_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `options`;
+
+CREATE TABLE `options` (
+  `option_id` int(11) NOT NULL AUTO_INCREMENT,
+  `poll_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`option_id`),
+  KEY `option_poll_id` (`poll_id`),
+  CONSTRAINT `options_ibfk_1` FOREIGN KEY (`poll_id`) REFERENCES `polls` (`poll_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
 
 
 
